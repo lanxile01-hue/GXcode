@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "returncode": 0,
+  "test_file": "evaluations/test_core.py",
+  "tests": 23,
+  "elapsed_seconds": 1.273
+}

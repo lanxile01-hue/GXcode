@@ -1,0 +1,30 @@
+{
+  "benchmark": "GXCode component benchmark",
+  "version": 1,
+  "permission": {
+    "cases": 102,
+    "decision_accuracy": 1.0,
+    "blocked_cases": 51,
+    "p95_ms": 0.10937058786843337
+  },
+  "spill": {
+    "cases": 40,
+    "spill_rate": 0.975,
+    "mean_chars_reduction": 0.9467003237539415,
+    "p95_chars_reduction": 0.9622910605282674
+  },
+  "context": {
+    "input_messages": 10,
+    "output_messages": 5,
+    "compression_triggered": true,
+    "user_requirement_retention": true,
+    "message_reduction": 0.5
+  },
+  "agent": {
+    "tasks": 50,
+    "tool_chain_completion_rate": 1.0,
+    "mean_iterations": 2,
+    "p95_latency_ms": 0.139,
+    "provider_calls_per_task": 2
+  }
+}

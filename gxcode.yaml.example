@@ -1,0 +1,45 @@
+# GXCode 示例配置文件
+# 复制为 gxcode.yaml 并填入真实的 api_key
+# 启动时指定: gxcode --config gxcode.yaml
+
+# 当前激活的供应商（必须匹配下面某个 providers 的 name）
+active: "claude"
+
+providers:
+  - name: "claude"
+    protocol: "anthropic"
+    model: "claude-sonnet-4-20250514"
+    base_url: "https://api.anthropic.com/v1/messages"
+    api_key: "sk-ant-xxxxxxxxxxxxx"
+    thinking: true
+
+  - name: "openai-gpt"
+    protocol: "openai"
+    model: "gpt-4o"
+    base_url: "https://api.openai.com/v1/chat/completions"
+    api_key: "sk-xxxxxxxxxxxxx"
+    # thinking 字段对 openai 协议无效，可省略
+
+  # 可以继续添加更多供应商配置
+  # - name: "deepseek"
+  #   protocol: "openai"
+  #   model: "deepseek-chat"
+  #   base_url: "https://api.deepseek.com/v1/chat/completions"
+  #   api_key: "sk-xxxxxxxxxxxxx"
+
+# 上下文压缩配置（可选，不填使用默认值）
+# context:
+#   window_size: 200000       # 模型上下文窗口（token）
+#   auto_margin: 13000        # 自动触发安全余量
+#   manual_margin: 3000       # 手动触发安全余量
+#   single_threshold: 32000   # 单条工具结果溢写阈值（字符）
+#   batch_threshold: 64000    # 工具结果合计溢写阈值（字符）
+#   keep_tokens: 10000        # 摘要时尾部保留 token 数
+#   keep_min: 5               # 摘要时尾部最少保留消息数
+#   max_summary_failures: 3   # 摘要连续失败熔断次数
+
+# 记忆管理配置（可选，不填使用默认值）
+# memory:
+#   max_include_depth: 3       # @include 最大嵌套深度
+#   cleanup_days: 30            # 会话清理天数
+#   note_update_enabled: true   # 是否启用自动笔记
