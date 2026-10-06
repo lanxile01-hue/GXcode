@@ -13,6 +13,7 @@ gxcode.local.yaml
 .pytest_cache/
 .coverage
 htmlcov/
+evaluations/latest_result.json
 
 # 本地工作区数据（非项目源码）
 .workbuddy/
