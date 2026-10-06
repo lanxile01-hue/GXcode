@@ -7,6 +7,15 @@ dist/
 build/
 .env
 gxcode.yaml
+gxcode.local.yaml
+
+# 测试与缓存产物
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 本地工作区数据（非项目源码）
+.workbuddy/
 
 # GXCode 运行时数据（会话记录/记忆/工具结果溢写/日志）——不入库
 .gxcode/sessions/

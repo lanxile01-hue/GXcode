@@ -2,4 +2,4 @@ servers:
   test:
     type: stdio
     command: python
-    args: ["test_mcp_server.py"]
+    args: ["tests/test_mcp_server.py"]
