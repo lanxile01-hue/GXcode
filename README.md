@@ -180,10 +180,3 @@ python evaluations/verify_checklist.py  # 验收清单离线核查（58 项）
 
 回归测试使用固定 `FakeProvider`，不调用真实模型、无需 API Key，结果写入 `evaluations/latest_result.json`。
 `verify_checklist.py --write` 会把通过的验收项回填到 `docs/ch*/checklist.md`，汇总见 `docs/CHECKLIST_STATUS.md`。
-
-## 已知限制
-
-- 回归测试覆盖核心机制（权限、压缩、会话、工具链等），尚未接入真实模型的端到端任务评测
-- 118 项验收清单中 58 项已通过离线自动化核查，其余需真实模型或人工观察，见 `docs/CHECKLIST_STATUS.md`
-- TUI 交互项（流式渲染、确认弹窗、Tab 补全菜单）需肉眼观察确认，未纳入自动化
-- `docs/ch06/` 缺 `spec.md`
