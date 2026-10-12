@@ -18,6 +18,9 @@ evaluations/latest_result.json
 # 本地工作区数据（非项目源码）
 .workbuddy/
 
+# 学习与求职素材（学习路线、简历、项目面试题与追问参考答案）——只留本地，不推 GitHub
+docs/meta/
+
 # GXCode 运行时数据（会话记录/记忆/工具结果溢写/日志）——不入库
 .gxcode/sessions/
 .gxcode/memory/
