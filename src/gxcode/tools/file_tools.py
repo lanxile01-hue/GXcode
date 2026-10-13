@@ -14,7 +14,8 @@ def _resolve_safe(path: str) -> Path:
     """安全解析路径，拒绝 .. 越权"""
     cwd = Path.cwd().resolve()
     resolved = (cwd / path).resolve()
-    if not str(resolved).startswith(str(cwd)):
+    # 用 is_relative_to 判断包含关系；字符串前缀会被 "/a/bc" 冒充 "/a/b" 放过
+    if not resolved.is_relative_to(cwd):
         raise ValueError(f"路径越权，不允许访问工作目录之外: {path}")
     return resolved
 
