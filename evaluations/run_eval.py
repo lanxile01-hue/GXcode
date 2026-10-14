@@ -1,5 +1,6 @@
 """Run the local evaluation suite and emit a machine-readable scorecard."""
 import json
+import re
 import subprocess
 import sys
 import time
@@ -15,11 +16,13 @@ print(proc.stdout, end="")
 if proc.stderr:
     print(proc.stderr, file=sys.stderr, end="")
 elapsed = round(time.perf_counter() - started, 3)
+# 用例数从 pytest -q 输出（如 "30 passed in 0.52s"）解析，免得手写数字过期
+count_match = re.search(r"(\d+)\s+passed", proc.stdout)
 summary = {
     "passed": proc.returncode == 0,
     "returncode": proc.returncode,
     "test_file": "evaluations/test_core.py",
-    "tests": 30,
+    "tests": int(count_match.group(1)) if count_match else 0,
     "elapsed_seconds": elapsed,
 }
 (root / "evaluations" / "latest_result.json").write_text(
