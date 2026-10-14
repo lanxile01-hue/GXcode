@@ -76,8 +76,6 @@ async def _async_main(config_path: str) -> None:
         print(f"错误: {e}")
         sys.exit(1)
 
-    project_root = Path.cwd()
-
     # 加载记忆上下文（指令 + 笔记索引）
     memory_context = build_memory_context(project_root)
 
