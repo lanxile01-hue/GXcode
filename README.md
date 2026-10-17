@@ -167,6 +167,7 @@ src/gxcode/
   tui/         Textual 界面
 docs/ch01-10/  逐章设计文档（spec / plan / tasks / checklist）
 evaluations/   回归测试与组件基准
+tests/          MCP 联调用例（test_mcp_server.py）
 ```
 
 ## 开发
