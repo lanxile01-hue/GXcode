@@ -69,6 +69,9 @@ _FAKE_CALL_NUDGE = (
     "如果任务确实已经完成，请直接给出完整、可交付的最终答案。"
 )
 
+# 整轮工具调用全部未注册（模型幻觉出工具名）时，连续这么多次就熔断开收
+_MAX_CONSECUTIVE_UNKNOWN_TOOLS = 3
+
 
 class AgentLoop:
     """ReAct Agent 循环编排器
@@ -227,7 +230,7 @@ class AgentLoop:
 
                 if unknown_count > 0 and unknown_count == len(turn.tool_calls):
                     consecutive_errors += 1
-                    if consecutive_errors >= 3:
+                    if consecutive_errors >= _MAX_CONSECUTIVE_UNKNOWN_TOOLS:
                         yield LoopFinished(
                             summary="连续工具错误",
                             iterations=iteration,
